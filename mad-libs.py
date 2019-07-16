@@ -12,25 +12,35 @@ def click(self):
             begin(self)
             return 0
 
+
     #append answer from textbox to answers list
-    answers.append(textentry.get())
+    answers.append(q_input.get())
 
     #empty text box
-    textentry.delete(0, END)
+    q_input.delete(0, END)
 
-    #add one to the question number
     global q_num
     q_num+=1
+
+    if q_num > len(questions):
+        #once questions are all answered, delete question number field
+        q_num_label.pack_forget()
+        #question text
+        q_text.pack_forget()
+        #delete text field
+        q_input.pack_forget()
+        #delete submit button
+        submit_button.pack_forget()
+        #delete bottom label
+        bottom_label.pack_forget()
+    #add one to the question number
 
     #return string for question number and move to next question text
     q_num_str.set('Question '+str(q_num)+' of '+str(len(questions)))
     q_act.set(questions[q_num-1])
 
-    if q_num == len(questions):
-        #run clear screen and show story
-        #window.withdraw()
-        #input.destroy()
-        var1 = 0
+    #when question number equals length, delete stuff and prepare for story
+        
 
 #move to normal game, delete beginning and play button
 def begin(self):
@@ -67,22 +77,26 @@ q_num_str.set("Question 1 of "+str(len(questions)))
 q_num = 1
 
 #question text
-Label(window,textvariable=q_act,bg='black',fg='red',font='Courier 20').pack(pady='10')
+q_text = Label(window,textvariable=q_act,bg='black',fg='red',font='Courier 20')
+q_text.pack(pady='10')
 
 #entry box for text
-input = textentry = Entry(window,width=20,bg='white',font='Courier 16')
-input.pack(pady='20')
+q_input = Entry(window,width=20,bg='white',font='Courier 16')
+q_input.pack(pady='20')
 
 #question number string
-Label(window,textvariable=q_num_str,bg='black',fg='red',font='Roboto 20').pack(pady='10')
+q_num_label = Label(window,textvariable=q_num_str,bg='black',fg='red',font='Roboto 20')
+q_num_label.pack(pady='10')
 
 #submit button
-Button(window,text='SUBMIT',width=10,command=click).pack()
+submit_button = Button(window,text='SUBMIT',width=10,command=click)
+submit_button.pack()
 
 #question number and instructions on the bottom
 Label(window, bg='black',fg='red',text='Created by: BL4Z3, h4ckerm4n_z4ch, b1g n@te, and PW3Z',font='Courier 18').pack(side='bottom',pady='10')
 
-Label(window,bg='black',fg='white',text='Answer the question in the text box and press enter',font='Courier 15').pack(side="bottom")
+bottom_label = Label(window,bg='black',fg='white',text='Answer the question in the text box and press enter',font='Courier 15')
+bottom_label.pack(side='bottom')
 
 #begin main GUI loop
 window.mainloop()
