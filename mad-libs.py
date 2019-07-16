@@ -4,8 +4,8 @@ import os
 def cls():
 	os.system('clear')
 
-def ask(n,phrase):
-    print('Question '+n+' of 20')
+def ask(phrase):
+    #print('Question '+n+' of 20')
     print('>>>Answer the question then press enter<<<\n')
     print(phrase)
     response = input('>> ')
