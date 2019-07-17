@@ -2,28 +2,14 @@
 from tkinter import *
 
 #list for questions and answers
-q_area51 = ['Enter an adjective related to weather...', 'Enter a number between 100 and 300...', 'Enter a number between 10 and 20...', 'Enter the name of a song...', 'Enter an adjective relating to birthday parties...', 'Enter an adjective relating to evil...', 'Enter the name of the person physically closest to you...', 'Enter a number between 1000 and 4000...', 'Enter an adjective that reminds you of prison...', 'Fortnite kids or anti-vax kids...', 'Enter an adjective related to anger...']
-questions = q_area51
 answers = []
+q_area51 = ['Enter an adjective related to weather...', 'Enter a number between 100 and 300...', 'Enter a number between 10 and 20...', 'Enter the name of a song...', 'Enter an adjective relating to birthday parties...', 'Enter an adjective relating to evil...', 'Enter the name of the person physically closest to you...', 'Enter a number between 1000 and 4000...', 'Enter an adjective that reminds you of prison...', 'Fortnite kids or anti-vax kids...', 'Enter an adjective related to anger...']
+s_area51 = """It was the morning of September 20th, 2019. Yet the sun didn't rise. The """+answers[0]
 
-#function for when submit button is clicked
-def click(self):
-    if(lbl1.winfo_ismapped()):
-            begin(self)
-            return 0
+#the question list should be set equal to the set which is being used
+questions = q_area51
 
-
-    #append answer from textbox to answers list
-    answers.append(q_input.get())
-
-    #empty text box
-    q_input.delete(0, END)
-
-    global q_num
-    q_num+=1
-
-    if q_num > len(questions):
-        #once questions are all answered, delete question number field
+def write_story():
         q_num_label.pack_forget()
         #question text
         q_text.pack_forget()
@@ -33,19 +19,30 @@ def click(self):
         submit_button.pack_forget()
         #delete bottom label
         bottom_label.pack_forget()
-    #add one to the question number
 
+
+
+
+#function for when submit button is clicked
+def click(self):
+    #append answer from textbox to answers list
+    answers.append(q_input.get())
+
+    #empty text box
+    q_input.delete(0, END)
+
+    #specify q_num as a global variable so it can be edited
+    global q_num
+    #add one to the question number
+    q_num+=1
+
+    #once questions are all answered, delete question number field
+    if q_num > len(questions):
+        write_story()
+        
     #return string for question number and move to next question text
     q_num_str.set('Question '+str(q_num)+' of '+str(len(questions)))
     q_act.set(questions[q_num-1])
-
-    #when question number equals length, delete stuff and prepare for story
-        
-
-#move to normal game, delete beginning and play button
-def begin(self):
-    lbl1.pack_forget()
-    lbl2.pack_forget()
 
 #create tkinter window, set title, background color, and size
 window = Tk()
@@ -53,17 +50,8 @@ window.title('Mad-Libs')
 window.configure(background='black')
 window.geometry('1000x600')
 
-#start screen with images
-img = PhotoImage(file='bg_1000x600.png')
-img2 = PhotoImage(file='begin_1000x.png')
-lbl1 = Label(window,image=img2,bg='black')
-lbl1.pack(side='bottom')
-lbl2 = Label(window,image=img,bg='black')
-lbl2.pack()
-
 #enter button does the same thing as the submit button
 window.bind('<Return>', click)
-window.bind('<Button-1>',begin)
 
 #title
 Label(window,text='Mad-Libs',bg='black',fg='red',font='Courier 50 bold').pack(pady='10')
