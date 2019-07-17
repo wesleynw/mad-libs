@@ -2,89 +2,129 @@
 from tkinter import *
 
 #list for questions and answers
+questions = ['Enter an adjective related to water...', 'Enter the name of the person sitting physically closest to you...', 'Use an adjective to describe aliens...', 'Name something red (singular)...', 'Enter a verb ending in ing...', 'Use an adjective to describe the sun...', 'Enter a number...any number...', '1. Send the Kyles\n2. Send the Karens']
 answers = []
-q_area51 = ['Enter an adjective related to weather...', 'Enter a number between 100 and 300...', 'Enter a number between 10 and 20...', 'Enter the name of a song...', 'Enter an adjective relating to birthday parties...', 'Enter an adjective relating to evil...', 'Enter the name of the person physically closest to you...', 'Enter a number between 1000 and 4000...', 'Enter an adjective that reminds you of prison...', 'Fortnite kids or anti-vax kids...', 'Enter an adjective related to anger...']
-s_area51 = """It was the morning of September 20th, 2019. Yet the sun didn't rise. The """+answers[0]
 
-#the question list should be set equal to the set which is being used
-questions = q_area51
+#define question numbers where a break should occure
+#then call do story to print story so far
+#break is last question number is story section
+breaks = [3,8,14]
 
-def write_story():
-        q_num_label.pack_forget()
-        #question text
-        q_text.pack_forget()
-        #delete text field
-        q_input.pack_forget()
-        #delete submit button
-        submit_button.pack_forget()
-        #delete bottom label
-        bottom_label.pack_forget()
+#run everytime some of the story needs to be told
+def do_story():
+    global q_num
+    if q_num == 3:
+        #print story so far and return
+        story.set("""It is the morning of September 20th, 2019. Yet the sun can't be seen. The """+answers[0]+""" fog covers the desert. You and your "best friend" """+answers[1]+""" ;) are joining in on the raid of Area 51. People are chanting "Free them """+answers[2]+""" aliens!!!" And then you know, you and """+answers[1]+""" will be victorious today.""")
+    elif q_num == 7:
+        story.set("""Around you are middle-aged women with """+answers[3]+""" red lipstick, they look like they're itching to speak to the managers of Area 51. Obvi Karens. Further our, """+answers[4]+""" in the """+answers[5]+""" desert sun, Monster Energy drinks litter the ground, lightly dusted in """+answers[6]+""" inches of drywall dust. The Kyles. Definitely. You and """+answers[1]+""" are the chosen leaders of this raid, chosen because of how cute both of you are together ;). Do you chose to send out the Kyles or Karens into battle first? We really need them aliens.""")
+    elif q_num == 8:
+        #if they chose 1, send kyles
+        if answers[8] == 1:
+            questions.append(['Enter an adjective that reminds you of power...', 'Enter a verb ending in ing...', 'Enter another verb ending in ing...', 'Enter an adverb (ends in -ly)...', 'Enter a body part (plural)...', 'Enter your favorite color...'])
+            return
+        #2 for karens    
+        else: 
+            questions.append(['Enter a verb ending in ing...', 'Enter an adjective...', 'Enter another verb ending in ing (something violent)...', 'Enter a superlative (ending in -est)...', 'Enter a 3-digit code...', 'Something you look for in a lover (adjective)...'])
+            return
+    elif q_num == 14:
+        #kyles
+        if answers[8] == 1:
+            story.set("""You chose to send the Kyles first. Their blood pumping with the """+answers[9]+""" power of good 'ol Monster Energy. As you """+answers[10]+""" through the desert terrain, you feel the water in the air """+answers[11]+""" your face. The kyles pile up against the gates and begin punching the walls """+answers[12]+""". But this is concrete, not drywall. It won't break. Annoyed with their failure, they begin bashing their """+answers[13]+""" on the walls, and they slowly begin dying. """+answers[14].capitalize()+""" blood covers the ground, the Kyles are down. It's up to the Karens now.""")
+        #karens
+            story.set("""The Karens march across the desert, """+answers[9]+""" at the """+answers[10]+""" guards. """+answers[2]+""" whispers to you, "I'm glad they're on our side xD". A high pitch droning statrs, each of the Karens """+answers[11]+""" the guards. Using this as a distraction, the Kyles try to get through the door, which asks for a 3 digit pin. First, the """+answers[12]+""" Kyle tried the code '"""+answers[13]+"""'. It works! We're in! I can already smell them """+answers[14]+"""aliens.""")
 
 
+    global breaks
+    breaks.remove(q_num)
+    #unpack all elements to show story
+    q_text.pack_forget()
+    q_input.pack_forget()
+    q_num_label.pack_forget()
+    submit_button.pack_forget()
+    bottom_instructions.pack_forget()
+    #pack label to show story
+    story_lbl.pack(pady='20')
+    #continue button to go back to story
+    continue_button.pack(pady='15')
 
 
 #function for when submit button is clicked
-def click(self):
-    #append answer from textbox to answers list
-    answers.append(q_input.get())
-
-    #empty text box
-    q_input.delete(0, END)
-
+def ask(*args):
     #specify q_num as a global variable so it can be edited
     global q_num
-    #add one to the question number
-    q_num+=1
+    answers.append(q_input.get())
 
-    #once questions are all answered, delete question number field
-    if q_num > len(questions):
-        write_story()
-        
+    if q_num in breaks:
+        do_story()
+        return
+    
+    #hide story and continue button
+    story_lbl.pack_forget()
+    continue_button.pack_forget()
+
+    #add one to the question number
+    #append answer from textbox to answers list
     #return string for question number and move to next question text
-    q_num_str.set('Question '+str(q_num)+' of '+str(len(questions)))
+    q_num+=1
     q_act.set(questions[q_num-1])
+    q_num_str.set('Question '+str(q_num)+' of '+str(len(questions)))
+
+    #if the question number is in the breaks list, call do_story
+
+    #get ready to ask new question
+    #repackage (show) asking elements)
+    q_text.pack(pady='10')
+    q_input.pack(pady='20')
+    q_num_label.pack(pady='10')
+    submit_button.pack()
+    bottom_instructions.pack(side='bottom')
+    #empty text box
+    q_input.delete(0, END)
 
 #create tkinter window, set title, background color, and size
 window = Tk()
 window.title('Mad-Libs')
 window.configure(background='black')
-window.geometry('1000x600')
-
-#enter button does the same thing as the submit button
-window.bind('<Return>', click)
-
-#title
-Label(window,text='Mad-Libs',bg='black',fg='red',font='Courier 50 bold').pack(pady='10')
+window.geometry('1300x700')
 
 #initialize question numbers and initial question
+#INITIAL ONLY
+q_num = 1
+story =  StringVar()
 q_act = StringVar()
 q_act.set(questions[0])
-
 q_num_str = StringVar()
 q_num_str.set("Question 1 of "+str(len(questions)))
-q_num = 1
+#enter button does the same thing as the submit button
+window.bind('<Return>', ask)
 
+
+### MAIN ASKING GUI ###
+#title
+main_title = Label(window,text='Mad-Libs',bg='black',fg='red',font='Courier 50 bold').pack(pady='10')
 #question text
 q_text = Label(window,textvariable=q_act,bg='black',fg='red',font='Courier 20')
 q_text.pack(pady='10')
-
 #entry box for text
 q_input = Entry(window,width=20,bg='white',font='Courier 16')
 q_input.pack(pady='20')
-
 #question number string
 q_num_label = Label(window,textvariable=q_num_str,bg='black',fg='red',font='Roboto 20')
 q_num_label.pack(pady='10')
-
 #submit button
-submit_button = Button(window,text='SUBMIT',width=10,command=click)
+submit_button = Button(window,text='SUBMIT',width=10,command=ask)
 submit_button.pack()
-
 #question number and instructions on the bottom
-Label(window, bg='black',fg='red',text='Created by: BL4Z3, h4ckerm4n_z4ch, b1g n@te, and PW3Z',font='Courier 18').pack(side='bottom',pady='10')
+bottom_credits = Label(window, bg='black',fg='red',text='Created by: BL4Z3, h4ckerm4n_z4ch, b1g n@te, and PW3Z',font='Courier 18').pack(side='bottom',pady='10')
+#instructions at bottom for entering text
+bottom_instructions = Label(window,bg='black',fg='white',text='Answer the question in the text box and press enter',font='Courier 15')
+bottom_instructions.pack(side='bottom')
 
-bottom_label = Label(window,bg='black',fg='white',text='Answer the question in the text box and press enter',font='Courier 15')
-bottom_label.pack(side='bottom')
+#HIDDEN WIDGETS
+story_lbl = Label(window, textvariable=story, width='600', justify='center', wraplength='600', bg='black', fg='white', font='Courier 17')
+continue_button = Button(window, text='CONTINUE', width='15', command=ask)
+
 
 #begin main GUI loop
 window.mainloop()
