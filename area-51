@@ -1,15 +1,19 @@
+{} indexes of questions in list
+q_num is plus 1 
+
+
 Begin
-It is the morning of September 20th, 2019. Yet the sun can't be seen. The (adjective {1}) fog covers the desert. You and your "best friend" (name {2}) ;) are joining in on the raid of Area 51. People are chanting "Free them (adjective {3}) aliens!!!" And then you know, you and (name {2}) will be victorious today.
+It is the morning of September 20th, 2019. Yet the sun can't be seen. The (adjective {0}) fog covers the desert. You and your "best friend" (name {1}) ;) are joining in on the raid of Area 51. People are chanting "Free them (adjective {2}) aliens!!!" And then you know, you and (name {1}) will be victorious today.
 
 Break 1
-Around you are middle-aged women with (something red {4} red lipstick, they look like they're itching to speak to the managers of Area 51. Obvi Karens. Farther out, (verb past tense{5}) in the (adjective {6}) desert sun, Monster Energy Drinks litter the ground, lightly dusted in (number {7}) of drywall dust. The Kyles. You and (name {2}) are the chosen leaders of this raid, chosen because of cute you both are together ;). Do you chose to send out the Kyles or Karens first to break the defenses and get them aliens?
+Around you are middle-aged women with (something red {3} red lipstick, they look like they're itching to speak to the managers of Area 51. Obvi Karens. Farther out, (verb past tense{4}) in the (adjective {5}) desert sun, Monster Energy Drinks litter the ground, lightly dusted in (number {6}) of drywall dust. The Kyles. You and (name {1}) are the chosen leaders of this raid, chosen because of cute you both are together ;). Do you chose to send out the Kyles or Karens into battle first? We really need them aliens.
 
-Choice 1 - {8}
+Choice 1 - {7}
 
 Kyles:
-You chose to send the Kyles first. Their blood pumping with the (adjective {9}) power of good ol' Monster Energy. As you (verb {10}) through the desert terrain, you feel the water in the air (verb {11}) your face. The Kyles pile up against the gates, and begin punching the walls (adverb {12}). But this is concrete, not drywall. It won't break. Annoyed with their failure, they begin bashing their (body part plural {13}) on the walls, and they slowly begin dying. (Color {14}) blood covers the ground, the Kyles are down. It's up to the Karens now. 
+You chose to send the Kyles first. Their blood pumping with the (adjective {8}) power of good ol' Monster Energy. As you (verb {9}) through the desert terrain, you feel the water in the air (verb {10}) your face. The Kyles pile up against the gates, and begin punching the walls (adverb {11}). But this is concrete, not drywall. It won't break. Annoyed with their failure, they begin bashing their (body part plural {12}) on the walls, and they slowly begin dying. (Color {13}) blood covers the ground, the Kyles are down. It's up to the Karens now. 
 
 Karens: 
-The Karens march across the desert, (verb {9}) at the (adjective {10}) guards. (name {2}) whispers to you, "I'm glad they're on our side. xD". A high pitch droning starts, each of the Karens (verb {11}) the guards. Using this as distraction, the Kyles try to get through the door, which asks for a 3 digit pin. First, the (superlative {12}) Kyle tried the code (3 digit code {13}). It works! We're in. I can already smell them (adjective {14} aliens.
+The Karens march across the desert, (verb {8}) at the (adjective {9}) guards. (name {1}) whispers to you, "I'm glad they're on our side. xD". A high pitch droning starts, each of the Karens (verb {10}) the guards. Using this as distraction, the Kyles try to get through the door, which asks for a 3 digit pin. First, the (superlative {11}) Kyle tried the code (3 digit code {12}). It works! We're in. I can already smell them (adjective {13} aliens.
 
 
