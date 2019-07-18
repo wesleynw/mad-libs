@@ -50,6 +50,7 @@ def do_story():
     breaks.remove(q_num)
     #unpack all elements to show story
     q_text.pack_forget()
+    q_input.config(state='disabled')
     q_input.pack_forget()
     q_num_label.pack_forget()
     submit_button.pack_forget()
@@ -65,10 +66,11 @@ def ask(*args):
     #specify q_num as a global variable so it can be edited
     global q_num
 
-    if not (len(q_input.get())) == 0:
+    if (len(q_input.get())) != 0:
         answers.append(q_input.get())
     #empty text box
     q_input.delete(0, END)
+    print(answers)
 
     #if the current question number is in breaks, dont run continue story, go to print story: do_story()
     if q_num in breaks:
@@ -93,6 +95,7 @@ def ask(*args):
     #repackage (show) asking elements)
     q_text.pack(pady='10')
     q_input.pack(pady='20')
+    q_input.config(state='normal')
     q_num_label.pack(pady='10')
     submit_button.pack()
     bottom_instructions.pack(side='bottom')
