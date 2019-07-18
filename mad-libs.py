@@ -47,9 +47,7 @@ def do_story():
         else:
             story.set("""The Karens march across the desert, """+answers[8]+""" at the """+answers[9]+""" guards. """+answers[1]+""" whispers to you, "I'm glad they're on our side xD". A high pitch droning starts, each of the Karens """+answers[10]+""" the guards. Using this as a distraction, the Kyles try to get through the door, which asks for a 3 digit pin. First, the """+answers[11]+""" Kyle tried the code '"""+answers[12]+"""'. It works! We're in! I can already smell them """+answers[13]+""" aliens.""")
 
-
     breaks.remove(q_num)
-
     #unpack all elements to show story
     q_text.pack_forget()
     q_input.pack_forget()
@@ -67,7 +65,6 @@ def ask(*args):
     #specify q_num as a global variable so it can be edited
     global q_num
 
-
     if not (len(q_input.get())) == 0:
         answers.append(q_input.get())
     #empty text box
@@ -80,7 +77,6 @@ def ask(*args):
         if q_num != 8:
             return 
     
-
     #hide story and continue button
     story_lbl.pack_forget()
     continue_button.pack_forget()
