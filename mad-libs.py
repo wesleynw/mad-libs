@@ -4,7 +4,7 @@ from tkinter import *
 #list for questions and answers
 #more questions will later be appended (.extend()) to the question list too
 #answers are added onto answers list as the program runs
-questions = ['Enter an adjective related to water...', 'Enter the name of the person sitting physically closest to you...', 'Use an adjective to describe aliens...', 'Name something red (singular)...', 'Enter a verb ending in ing...', 'Use an adjective to describe the sun...', 'Enter a number...any number...', '1. Send the Kyles\n2. Send the Karens']
+questions = ['Enter an adjective related to water...', 'Enter the name of the person sitting physically closest to you...', 'Use an adjective to describe aliens...', 'Name something red (singular)...', 'Enter a verb ending in ing...', 'Use an adjective to describe the sun...', 'Enter a number...any number...', 'Press '1' to send Kyles\nPress '2' to send Karens']
 answers = []
 
 #define question numbers where a break should occure
