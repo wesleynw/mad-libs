@@ -4,7 +4,7 @@ from tkinter import *
 #list for questions and answers
 #more questions will later be appended (.extend()) to the question list too
 #answers are added onto answers list as the program runs
-questions = ['Enter an adjective related to water...', 'Enter the name of the person sitting physically closest to you...', 'Use an adjective to describe aliens...', 'Name something red (singular)...', 'Enter a verb ending in ing...', 'Use an adjective to describe the sun...', 'Enter a number...any number...', 'Press '1' to send Kyles\nPress '2' to send Karens']
+questions = ['Enter an adjective related to water...', 'Enter the name of the person sitting physically closest to you...', 'Use an adjective to describe aliens...', 'Name something red (singular)...', 'Enter a verb ending in ing...', 'Use an adjective to describe the sun...', 'Enter a number...any number...', """Press '1' to send Kyles\nPress '2' to send Karens"""]
 answers = []
 
 #define question numbers where a break should occure
@@ -27,7 +27,7 @@ def do_story():
         story.set("""Around you are middle-aged women with """+answers[3]+""" red lipstick, they look like they're itching to speak to the managers of Area 51. Obviously Karens. Further out, """+answers[4]+""" in the """+answers[5]+""" desert sun, Monster Energy drinks litter the ground, lightly dusted in """+answers[6]+""" inches of drywall dust. The Kyles. Definitely. You and """+answers[1]+""" are the chosen leaders of this raid, chosen because of how cute both of you are together ;). Do you chose to send out the Kyles or Karens into battle first? We really need them aliens.""")
     elif q_num == 8:
         #this is after use chooses between karens and kyles, need to add corresponding questions to end of questions list, which is a global
-        if answers[7] == str(1):
+        if answers[7] == '1':
             #if the answer to the choice answers[7] is 1, they chose Kyles
             #append the new corresponding questions to the questions list (which is global)
             questions.extend(['Enter an adjective that reminds you of power...', 'Enter a verb ending in ing...', 'Enter another verb ending in ing...', 'Enter an adverb (ends in -ly)...', 'Enter a body part (plural)...', 'Enter your favorite color...'])
@@ -41,7 +41,7 @@ def do_story():
     elif q_num == 14:
         #check the answer to the choice so the right part of the story is printed
         #Kyles
-        if answers[7] == str(1):
+        if answers[7] == '1':
             story.set("""You chose to send the Kyles first. Their blood pumping with the """+answers[8]+""" power of good 'ol Monster Energy. As you are """+answers[9]+""" through the desert terrain, you feel the water in the air """+answers[10]+""" your face. The kyles pile up against the gates and begin punching the walls """+answers[11]+""". But this is concrete, not drywall. It won't break. Annoyed with their failure, they begin bashing their """+answers[12]+""" on the walls, and they slowly begin dying. """+answers[13].capitalize()+""" blood covers the ground, the Kyles are down. It's up to the Karens now.""")
         #Karens
         else:
@@ -70,7 +70,6 @@ def ask(*args):
     #empty text box
     q_input.delete(0, END)
 
-    print(answers)
     #if the current question number is in breaks, dont run continue story, go to print story: do_story()
     if q_num in breaks:
         do_story()
