@@ -10,7 +10,7 @@ answers = []
 #define question numbers where a break should occure
 #then call do story to print story so far
 #break is last question number is story section
-breaks = [3,7,8,14]
+breaks = [3,7,8,14,30,31]
 
 #run everytime some of the story needs to be told
 def do_story():
@@ -30,12 +30,12 @@ def do_story():
         if answers[7] == '1':
             #if the answer to the choice answers[7] is 1, they chose Kyles
             #append the new corresponding questions to the questions list (which is global)
-            questions.extend(['Enter an adjective that reminds you of power...', 'Enter a verb ending in ing...', 'Enter another verb ending in ing...', 'Enter an adverb (ends in -ly)...', 'Enter a body part (plural)...', 'Enter your favorite color...'])
+            questions.extend(['Enter an adjective that reminds you of power...', 'Enter a verb ending in ing...', 'Enter another verb ending in ing...', 'Enter an adverb (ends in -ly)...', 'Enter a body part (plural)...', 'Enter your favorite color...', 'Enter an adverb (ending in -ly)...', 'Enter a verb, present tense...', 'Enter something that you want...', 'Enter your favorite movie franchise...', 'Enter a body part (singular)...', 'Enter an adjective (something spicy ;))..., ', 'Enter an adverb (ending in -ly)', 'Enter a verb, present tense...', 'Enter another verb, past tense...', 'Enter a kind of pet...', 'Enter the name of a place you want to go...', 'Enter an adjective <3...', 'Enter the name of a song you would dance to...', 'Enter your name...', 'Enter a verb ending in ing...', 'Enter an internal organ...', """Do you chose to...\nPress 1 to stay with your lover\nPress 2 to get with that alien"""])
             #after appending, you don't need to continue in do_story() loop because there is no new story to print
         else: 
             #if the answer to choice answers[7] is 2 (else), they chose Karens
             #append the new corresponding questions to the questions list (which is global)
-            questions.extend(['Enter a verb ending in ing...', 'Enter an adjective...', 'Enter another verb ending in ing (something violent)...', 'Enter a superlative (ending in -est)...', 'Enter a 3-digit code...', 'Something you look for in a lover (adjective)...'])
+            questions.extend(['Enter a verb ending in ing...', 'Enter an adjective...', 'Enter another verb ending in ing (something violent)...', 'Enter a superlative (ending in -est)...', 'Enter a 3-digit code...', 'Something you look for in a lover (adjective)...', 'Enter an adverb (ending in -ly)...', 'Enter a verb, present tense...', 'Enter something that you want...', 'Enter your favorite movie franchise...', 'Enter a body part (singular)...', 'Enter an adjective (something spicy ;))..., ', 'Enter an adverb (ending in -ly', 'Enter a verb, present tense...', 'Enter another verb, past tense...', 'Enter a kind of pet...', 'Enter the name of a place you want to go...', 'Enter an adjective <3...', 'Enter the name of a song you would dance to...', 'Enter your name...', 'Enter a verb ending in ing...', 'Enter an internal organ...', """Do you chose to...\nPress 1 to stay with your lover\nPress 2 to get with that alien"""])
             #after appending, you don't need to continue in do_story() loop because there is no new story to print
     #q_num 14 should be the end of the story (so far), so then print the remaining story
     elif q_num == 14:
@@ -46,6 +46,13 @@ def do_story():
         #Karens
         else:
             story.set("""The Karens march across the desert, """+answers[8]+""" at the """+answers[9]+""" guards. """+answers[1]+""" whispers to you, "I'm glad they're on our side xD". A high pitch droning starts, each of the Karens """+answers[10]+""" the guards. Using this as a distraction, the Kyles try to get through the door, which asks for a 3 digit pin. First, the """+answers[11]+""" Kyle tried the code '"""+answers[12]+"""'. It works! We're in! I can already smell them """+answers[13]+""" aliens.""")
+    elif q_num == 30:
+        story.set("""The remainer of your army charges through the small door """+answers[14]+""", all anxious to """+answers[15]+""" more guards and see if they can find """+answers[16]+""" in the Area 51 complex. As you rush into the complex, you see all the artifacts around you, including """+answers[17]+""" 7 and a copy of the Krabby Patty secret formula. But what really catches your """+answers[18]+""" is the """+answers[19]+""" body of the alien, lying """+answers[20]+""" in its cell. You don't really know if it's a guy or girl, but you're instantly attracted. You start """+answers[21]+""" towards it, but then you feel the hand of """+answers[1]+""" yank you back. Tears streaming down their face, you know they know what you saw. 'Please don't leave me, all the things we've been through together, the time when you """+answers[22]+""" my """+answers[23]+""", or when you took me to """+answers[24]+""" for the first time and we stood in the """+answers[25]+""" lights and danced to """+answers[26]+""" all night long. Don't forget all of that! Gone. Us, together! """+answers[27]+""", don't leave for a stupid stupid alien, please!'. Your feel your heart """+answers[28]+""" in your """+answers[29]+"""Do you stay with your love, """+answers[1]+""" or do you go over to the alien, who you seem to like so much? :(""")
+    elif q_num == 31:
+        if answers[30] == '1':
+            story.set('love is still alive. there is hope.')
+        else: 
+            story.set('love is dead. there is no hope.')
 
     breaks.remove(q_num)
     #unpack all elements to show story
@@ -70,7 +77,6 @@ def ask(*args):
         answers.append(q_input.get())
     #empty text box
     q_input.delete(0, END)
-    print(answers)
 
     #if the current question number is in breaks, dont run continue story, go to print story: do_story()
     if q_num in breaks:
@@ -140,7 +146,7 @@ bottom_instructions = Label(window,bg='black',fg='white',text='Answer the questi
 bottom_instructions.pack(side='bottom')
 
 #HIDDEN WIDGETS
-story_lbl = Label(window, textvariable=story, width='600', justify='center', wraplength='600', bg='black', fg='white', font='Courier 17')
+story_lbl = Label(window, textvariable=story, width='900', justify='center', wraplength='1000', bg='black', fg='white', font='Courier 17')
 continue_button = Button(window, text='CONTINUE', width='15', command=ask)
 
 
