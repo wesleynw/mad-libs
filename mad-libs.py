@@ -54,9 +54,9 @@ def do_story():
         story.set("""The remainer of your army charges through the small door """+answers[14]+""", all anxious to """+answers[15]+""" more guards and see if they can find """+answers[16]+""" in the Area 51 complex. As you rush into the complex, you see all the artifacts around you, including """+answers[17]+""" 7 and a copy of the Krabby Patty secret formula. But what really catches your """+answers[18]+""" is the """+answers[19]+""" body of the alien, lying """+answers[20]+""" in its cell. You don't really know if it's a guy or girl, but you're instantly attracted. You start """+answers[21]+""" towards it, but then you feel the hand of """+answers[1]+""" yank you back. Tears streaming down their face, you know they know what you saw. 'Please don't leave me, all the things we've been through together, the time when you """+answers[22]+""" my """+answers[23]+""", or when you took me to """+answers[24]+""" for the first time and we stood in the """+answers[25]+""" lights and danced to """+answers[26]+""" all night long. Don't forget all of that! Gone. Us, together! """+answers[27]+""", don't leave for a stupid stupid alien, please!'. Your feel your heart """+answers[28]+""" in your """+answers[29]+"""Do you stay with your love, """+answers[1]+""" or do you go over to the alien, who you seem to like so much? :(""")
     elif q_num == 31:
         if answers[30] == '1':
-            story.set('love is still alive. there is hope.')
+            story.set("""love is still alive. there is hope. for now. but you'll always have this itch in the back of your head, a regret in your head. you didn't choose the alien. you don't know its name. you'll never know what you could have been. or what you could be. you are only who you are now, and you can't change that. they always told you "the present tense of regret is indecision". you faced that indecision. you're with your love now, but was that the right choice?""")
         else: 
-            story.set('love is dead. there is no hope.')
+            story.set("""love is dead. there is no hope. but maybe you made the right choice. maybe 'love' is just a chemical reaction that compells us to breed. it hit you hard, but it will slowly fade, leaving you stranded in a failing marriage. there's no way out. at least now you have an alien.""")
 
     breaks.remove(q_num)
     #unpack all elements to show story
@@ -147,7 +147,7 @@ q_num_label.pack(pady='10')
 submit_button = Button(window,text='SUBMIT',width=10,command=ask)
 submit_button.pack()
 #question number and instructions on the bottom
-bottom_credits = Label(window, bg='black',fg='red',text='Created by: BL4Z3, h4ckerm4n_z4ch, b1g n@te, and PW3Z',font='Courier 18').pack(side='bottom',pady='10')
+bottom_credits = Label(window, bg='black',fg='red',text='Created by: BL4Z3, h4ckerm4n_z4ch, b1g n@t3, and PW3Z',font='Courier 18').pack(side='bottom',pady='10')
 #instructions at bottom for entering text
 bottom_instructions = Label(window,bg='black',fg='white',text='Answer the question in the text box and press enter',font='Courier 15')
 bottom_instructions.pack(side='bottom')
