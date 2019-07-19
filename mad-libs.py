@@ -14,6 +14,10 @@ breaks = [3,7,8,14,30,31]
 
 #run everytime some of the story needs to be told
 def do_story():
+    """
+    Depending on what question number the program is on, this function decides what to do.
+    Uses an if/elif to either set the story including the entered answers, or append more story depending on the user's choices.
+    """
     # q_num and questions are global so they can be modified within the function globally
     global q_num
     global questions
@@ -70,6 +74,9 @@ def do_story():
 
 #function for when submit button is clicked
 def ask(*args):
+    """
+This function will display all the question asking elements (input box), it will increase the question number then display the new question text.
+    """
     #specify q_num as a global variable so it can be edited
     global q_num
 
